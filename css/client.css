@@ -12,7 +12,7 @@
 }
 
 .toast {
-    position: absolute;
-    top: 65px;
+    position: fixed;
+    top: 85px;
     right: 10px;
 }
