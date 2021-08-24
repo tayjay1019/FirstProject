@@ -10,6 +10,19 @@
         toast.currentTime = 0;
         // play audio
         toast.play();
+
+        //add name and code
+        var name = $(this).data('name');
+        var code = $(this).data('code');
+        $('#productName').text(name);
+        $('#productCode').text(code);
+
         $('#toast').toast({ autohide: false }).toast('show');
+    });
+
+    $(document).on('keyup', function(e){
+        if(e.key == "Escape") {
+            $('#toast').toast('hide');
+        }
     });
 });
