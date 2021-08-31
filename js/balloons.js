@@ -1,5 +1,7 @@
 ﻿$(function(){
     $('#birthday').pickadate({ format: 'mmmm, d' });
+
+   
 });
 
 // uncheck all checkboxes (FireFox)
@@ -34,4 +36,55 @@ var ran = Math.floor(Math.random() * animations.length);
 
 $(function(){
     $('#birthdayTag').addClass(animations[ran]);
+
+    // preload audio
+    var toast = new Audio('media/toast.wav');
+
+    
+
+    $(document).on('keyup', function(e){
+        if(e.key == "Escape") {
+            $('#toast').toast('hide');
+        }
+    });
 });
+
+$('#submit').on('click', function(e) {
+
+    if ($('#red:checked') !== null){
+        e.preventDefault();
+        // first pause the audio (in case it is still playing)
+        toast.pause();
+        // reset the audio
+        toast.currentTime = 0;
+        // play audio
+        toast.play();
+
+        $('#toast').toast({ autohide: false }).toast('show');
+    };
+});
+
+
+/* the shadow realm
+*/
+ function check(checked = true) {
+        const cbs = document.querySelectorAll('input[name="balloon"]');
+        cbs.forEach((cb) => {
+            cb.checked = checked;
+        });
+    }
+    
+    const btn = document.querySelector('#btn');
+    btn.onclick = checkAll;
+    
+    function checkAll() {
+        check();
+        this.onclick = uncheckAll;
+    }
+    
+    function uncheckAll() {
+        check(false);
+        this.onclick = checkAll;
+    }
+
+
