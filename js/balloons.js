@@ -64,6 +64,24 @@ $('#submit').on('click', function(e) {
     };
 });
 
+$('.red-area').hover(function(){
+    $('#birthdayTag').css("color", "red");
+}, function(){
+    $('#birthdayTag').css("color", "black");
+});
+
+$('.green-area').hover(function(){
+    $('#birthdayTag').css("color", "green");
+}, function(){
+    $('#birthdayTag').css("color", "black");
+});
+
+$('.blue-area').hover(function(){
+    $('#birthdayTag').css("color", "blue");
+}, function(){
+    $('#birthdayTag').css("color", "black");
+});
+
 
 /* the shadow realm
 */
