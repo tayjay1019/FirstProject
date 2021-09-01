@@ -37,8 +37,7 @@ var ran = Math.floor(Math.random() * animations.length);
 $(function(){
     $('#birthdayTag').addClass(animations[ran]);
 
-    // preload audio
-    var toast = new Audio('media/toast.wav');
+    
 
     
 
@@ -50,19 +49,14 @@ $(function(){
 });
 
 $('#submit').on('click', function(e) {
+    e.preventDefault();
+    var colors = $("input[name=balloon]:checked");
 
-    if ($('#red:checked') !== null){
-        e.preventDefault();
-        // first pause the audio (in case it is still playing)
-        toast.pause();
-        // reset the audio
-        toast.currentTime = 0;
-        // play audio
-        toast.play();
+    if (colors.length == 0) {
+        $('#toast').toast({autohide: false}).toast('show');
+    }
+})
 
-        $('#toast').toast({ autohide: false }).toast('show');
-    };
-});
 
 $('.red-area').hover(function(){
     $('#birthdayTag').css("color", "red");
@@ -84,6 +78,22 @@ $('.blue-area').hover(function(){
 
 
 /* the shadow realm
+$('#submit').on('click', function(e) {
+    // preload audio
+    var toast = new Audio('media/toast.wav');
+
+    if ($('#red').not(':checked')){
+        e.preventDefault();
+        // first pause the audio (in case it is still playing)
+        toast.pause();
+        // reset the audio
+        toast.currentTime = 0;
+        // play audio
+        toast.play();
+
+        $('#toast').toast({ autohide: false }).toast('show');
+    };
+});
 */
  function check(checked = true) {
         const cbs = document.querySelectorAll('input[name="balloon"]');
