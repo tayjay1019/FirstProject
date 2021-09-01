@@ -99,6 +99,10 @@ $('#submit').on('click', function(e) {
         const cbs = document.querySelectorAll('input[name="balloon"]');
         cbs.forEach((cb) => {
             cb.checked = checked;
+            $('#' + cb.id + 'Img').removeClass().addClass('animate__animated animate__bounceInDown');
+            if( checked == false){ 
+            $('#' + cb.id + 'Img').addClass('animate__animated animate__bounceOutUp');
+            }
         });
     }
     
